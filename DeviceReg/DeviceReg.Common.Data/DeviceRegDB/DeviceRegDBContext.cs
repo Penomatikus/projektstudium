@@ -10,6 +10,6 @@ namespace DeviceReg.Common.Data.DeviceRegDB
 {
     public class DeviceRegDBContext : DbContext
     {
-        public virtual DbSet<Devices> Devices { get; set; }
+        public virtual DbSet<Device> Devices { get; set; }
     }
 }

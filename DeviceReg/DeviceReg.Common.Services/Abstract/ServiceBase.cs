@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DeviceReg.Common.Data
+namespace DeviceReg.Services.Abstract
 {
-    public class Class1
+    public class ServiceBase
     {
     }
 }

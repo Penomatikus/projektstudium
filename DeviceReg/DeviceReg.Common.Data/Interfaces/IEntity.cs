@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DeviceReg.Repositories
+namespace DeviceReg.Common.Data.Interfaces
 {
-    public class Class1
+    public interface IEntity
     {
     }
 }
