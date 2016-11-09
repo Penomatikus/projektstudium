@@ -13,7 +13,7 @@ namespace DeviceReg.Common.Data.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201611091912043_Initial"; }
+            get { return "201611091952136_Initial"; }
         }
         
         string IMigrationMetadata.Source
