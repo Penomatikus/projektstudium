@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DeviceRegDB\DeviceRegDBContext.cs" />
+    <Compile Include="DeviceRegDB\DeviceRegDBInitializer.cs" />
     <Compile Include="Interfaces\IEntity.cs" />
     <Compile Include="Migrations\201611091952136_Initial.cs" />
     <Compile Include="Migrations\201611091952136_Initial.Designer.cs">
@@ -66,6 +67,8 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Devices.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Medium.cs" />
+    <Compile Include="Models\TypeOfDevice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

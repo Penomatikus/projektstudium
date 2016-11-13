@@ -11,6 +11,22 @@ namespace DeviceReg.Common.Data.DeviceRegDB
 {
     public class DeviceRegDBContext : IdentityDbContext<ApplicationUser>
     {
-        public virtual DbSet<Device> Devices { get; set; }
+        public DeviceRegDBContext() {
+            Database.SetInitializer(new DeviceRegDBInitializer());
+        }
+        public virtual DbSet<Device> Devices
+        {
+            get; set;
+        }
+        public virtual DbSet<Medium> Mediums
+        {
+            get; set;
+        }
+        public virtual DbSet<TypeOfDevice> Types
+        {
+           get; set;
+        }
     }
 }
+
+
