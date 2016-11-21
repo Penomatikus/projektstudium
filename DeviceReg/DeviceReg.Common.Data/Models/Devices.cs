@@ -1,4 +1,5 @@
 ﻿using DeviceReg.Common.Data.Interfaces;
+using DeviceReg.Common.Data.Models.ComplexTypes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,10 +8,11 @@ using System.Threading.Tasks;
 
 namespace DeviceReg.Common.Data.Models
 {
-    public class Device: IEntity
+    public class Device : IEntity
     {
-        public Device() {
-
+        public Device()
+        {
+            Timestamp = new Timestamp();
         }
 
         public int Id
@@ -25,40 +27,42 @@ namespace DeviceReg.Common.Data.Models
         {
             get; set;
         }
-        public string PersonalTag
-        {
-            get; set;
-        }
+        //public string PersonalTag
+        //{
+        //    get; set;
+        //}
         public bool RegularMaintenance
         {
             get; set;
         }
-        public bool RegularCalibration
-        {
-            get; set;
-        }
-        public string Text
-        {
-            get; set;
-        }
+        //public bool RegularCalibration
+        //{
+        //    get; set;
+        //}
+        //public string Text
+        //{
+        //    get; set;
+        //}
 
-        public int TypeOfDeviceId
-        {
-            get; set;
-        }
-        public TypeOfDevice TypeOfDevice
-        {
-            get; set;
-        }
+        //public int TypeOfDeviceId
+        //{
+        //    get; set;
+        //}
+        //public TypeOfDevice TypeOfDevice
+        //{
+        //    get; set;
+        //}
 
-        public int MediumId
-        {
-            get; set;
-        }
-        public Medium Medium
-        {
-            get; set;
-        }
+        //public int MediumId
+        //{
+        //    get; set;
+        //}
+        //public Medium Medium
+        //{
+        //    get; set;
+        //}
+
+        public Timestamp Timestamp { get; set; }
 
     }
 }

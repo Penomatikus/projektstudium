@@ -7,14 +7,15 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DeviceReg.Common.Data.DeviceRegDB {
-    public class DeviceRegDBInitializer : DropCreateDatabaseAlways<DeviceRegDBContext> {
+    //public class DeviceRegDBInitializer : DropCreateDatabaseAlways<DeviceRegDBContext> {
+    public class DeviceRegDBInitializer : NullDatabaseInitializer<DeviceRegDBContext> {
 
-        protected override void Seed(DeviceRegDBContext context) {
-            AddTypesOfDevice(context);
-            AddMediums(context);
+    //protected override void Seed(DeviceRegDBContext context) {
+    //        AddTypesOfDevice(context);
+    //        AddMediums(context);
 
-            base.Seed(context);
-        }
+    //        base.Seed(context);
+    //    }
 
         private void AddMediums(DeviceRegDBContext context) {
             IList<Medium> mediums = new List<Medium>() {
@@ -29,7 +30,7 @@ namespace DeviceReg.Common.Data.DeviceRegDB {
             };
 
             foreach(Medium medium in mediums) {
-                context.Mediums.Add(medium);
+          //      context.Mediums.Add(medium);
             }
         }
 
@@ -43,7 +44,7 @@ namespace DeviceReg.Common.Data.DeviceRegDB {
             };
 
             foreach(TypeOfDevice type in types) {
-                context.Types.Add(type);
+            //    context.Types.Add(type);
             }
         }
     }

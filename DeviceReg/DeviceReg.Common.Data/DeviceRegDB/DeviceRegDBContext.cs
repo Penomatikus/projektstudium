@@ -9,23 +9,26 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace DeviceReg.Common.Data.DeviceRegDB
 {
-    public class DeviceRegDBContext : IdentityDbContext<ApplicationUser>
+
+    //public class DeviceRegDBContext : IdentityDbContext<ApplicationUser>
+    public class DeviceRegDBContext:DbContext
     {
-        public DeviceRegDBContext() {
+        
+        public DeviceRegDBContext():base("DefaultConnection") {
             Database.SetInitializer(new DeviceRegDBInitializer());
         }
         public virtual DbSet<Device> Devices
         {
             get; set;
         }
-        public virtual DbSet<Medium> Mediums
-        {
-            get; set;
-        }
-        public virtual DbSet<TypeOfDevice> Types
-        {
-           get; set;
-        }
+        //public virtual DbSet<Medium> Mediums
+        //{
+        //    get; set;
+        //}
+        //public virtual DbSet<TypeOfDevice> Types
+        //{
+        //   get; set;
+        //}
     }
 }
 

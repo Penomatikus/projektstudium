@@ -11,7 +11,7 @@ namespace DeviceReg.Repositories
 {
     public class DeviceRepository : RepositoryBase<Device>
     {
-        public DeviceRepository(DbContext database) : base(database)
+        public DeviceRepository(DbSet<Device> dbSet) : base(dbSet)
         {
 
         }
