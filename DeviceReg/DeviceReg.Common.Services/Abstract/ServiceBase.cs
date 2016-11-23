@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DeviceReg.Common.Data.Interfaces
+namespace DeviceReg.Services.Abstract
 {
-    public interface IEntity
+    public class ServiceBase
     {
     }
 }

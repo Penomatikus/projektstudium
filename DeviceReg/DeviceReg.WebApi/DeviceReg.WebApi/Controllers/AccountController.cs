@@ -16,13 +16,12 @@ using Microsoft.Owin.Security.OAuth;
 using DeviceReg.WebApi.Models;
 using DeviceReg.WebApi.Providers;
 using DeviceReg.WebApi.Results;
-using DeviceReg.WebApi.Controllers.Base;
 
 namespace DeviceReg.WebApi.Controllers
 {
     [Authorize]
     [RoutePrefix("api/Account")]
-    public class AccountController : ApiControllerBase
+    public class AccountController : ApiController
     {
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager _userManager;
