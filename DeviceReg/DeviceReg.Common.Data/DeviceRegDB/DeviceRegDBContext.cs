@@ -21,6 +21,11 @@ namespace DeviceReg.Common.Data.DeviceRegDB
         {
             get; set;
         }
+
+        public virtual DbSet<User> Users
+        {
+            get; set;
+        }
         //public virtual DbSet<Medium> Mediums
         //{
         //    get; set;

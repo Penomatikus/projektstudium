@@ -64,12 +64,17 @@
     <Compile Include="Migrations\201611091952136_Initial.Designer.cs">
       <DependentUpon>201611091952136_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611251424176_AddedUser.cs" />
+    <Compile Include="Migrations\201611251424176_AddedUser.Designer.cs">
+      <DependentUpon>201611251424176_AddedUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ComplexTypes\Timestamp.cs" />
     <Compile Include="Models\Devices.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Medium.cs" />
     <Compile Include="Models\TypeOfDevice.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -79,6 +84,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201611091952136_Initial.resx">
       <DependentUpon>201611091952136_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611251424176_AddedUser.resx">
+      <DependentUpon>201611251424176_AddedUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
