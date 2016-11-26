@@ -17,11 +17,10 @@ namespace DeviceReg.Common.Services
 
         }
 
-        public void AddDevice(Device device)
+        public Device AddDevice(Device device)
         {
-            UnitOfWork.Devices.Add(device);
-
-            UnitOfWork.SaveChanges();
+            UnitOfWork.Devices.Add(device);          
+            return (UnitOfWork.SaveChanges() > 0) ? device : null;
         }
 
         public bool Delete(int id)
@@ -35,6 +34,21 @@ namespace DeviceReg.Common.Services
             }
 
             return false;
+        }
+
+        public Device GetDevice(int v)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Device> GetAllDevices()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Device UpdateDevice(Device device)
+        {
+            throw new NotImplementedException();
         }
     }
 }

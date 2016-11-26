@@ -77,7 +77,7 @@ namespace DeviceReg.WebApi.Controllers
 
         // GET api/Account/ManageInfo?returnUrl=%2F&generateState=true
         [Route("ManageInfo")]
-        public async Task<ManageInfoViewModel> GetManageInfo(string returnUrl, bool generateState = false)
+        public async Task<ManageInfoViewModel> GetManageInfoAsync(string returnUrl, bool generateState = false)
         {
             IdentityUser user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
 
@@ -117,7 +117,7 @@ namespace DeviceReg.WebApi.Controllers
 
         // POST api/Account/ChangePassword
         [Route("ChangePassword")]
-        public async Task<IHttpActionResult> ChangePassword(ChangePasswordBindingModel model)
+        public async Task<IHttpActionResult> ChangePasswordAsync(ChangePasswordBindingModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -137,7 +137,7 @@ namespace DeviceReg.WebApi.Controllers
 
         // POST api/Account/SetPassword
         [Route("SetPassword")]
-        public async Task<IHttpActionResult> SetPassword(SetPasswordBindingModel model)
+        public async Task<IHttpActionResult> SetPasswordAsync(SetPasswordBindingModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -156,7 +156,7 @@ namespace DeviceReg.WebApi.Controllers
 
         // POST api/Account/AddExternalLogin
         [Route("AddExternalLogin")]
-        public async Task<IHttpActionResult> AddExternalLogin(AddExternalLoginBindingModel model)
+        public async Task<IHttpActionResult> AddExternalLoginAsync(AddExternalLoginBindingModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -194,7 +194,7 @@ namespace DeviceReg.WebApi.Controllers
 
         // POST api/Account/RemoveLogin
         [Route("RemoveLogin")]
-        public async Task<IHttpActionResult> RemoveLogin(RemoveLoginBindingModel model)
+        public async Task<IHttpActionResult> RemoveLoginAsync(RemoveLoginBindingModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -226,7 +226,7 @@ namespace DeviceReg.WebApi.Controllers
         [HostAuthentication(DefaultAuthenticationTypes.ExternalCookie)]
         [AllowAnonymous]
         [Route("ExternalLogin", Name = "ExternalLogin")]
-        public async Task<IHttpActionResult> GetExternalLogin(string provider, string error = null)
+        public async Task<IHttpActionResult> GetExternalLoginAsync(string provider, string error = null)
         {
             if (error != null)
             {
@@ -322,7 +322,7 @@ namespace DeviceReg.WebApi.Controllers
         // POST api/Account/Register
         [AllowAnonymous]
         [Route("Register")]
-        public async Task<IHttpActionResult> Register(RegisterBindingModel model)
+        public async Task<IHttpActionResult> RegisterAsync(RegisterBindingModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -345,7 +345,7 @@ namespace DeviceReg.WebApi.Controllers
         [OverrideAuthentication]
         [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
         [Route("RegisterExternal")]
-        public async Task<IHttpActionResult> RegisterExternal(RegisterExternalBindingModel model)
+        public async Task<IHttpActionResult> RegisterExternalAsync(RegisterExternalBindingModel model)
         {
             if (!ModelState.IsValid)
             {
