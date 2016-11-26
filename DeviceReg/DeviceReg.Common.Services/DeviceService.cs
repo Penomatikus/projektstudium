@@ -50,5 +50,10 @@ namespace DeviceReg.Common.Services
         {
             throw new NotImplementedException();
         }
+
+        public object UpdateDevice(string id, Device device)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

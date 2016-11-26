@@ -37,7 +37,7 @@ namespace DeviceReg.WebApi.Controllers
         /// <returns></returns>
         [Route("{userID}")]
         [HttpDelete]
-        public HttpResponseMessage Delete(string id)
+        public HttpResponseMessage Delete(string userID)
         {
             throw new NotImplementedException();
         }
@@ -58,7 +58,7 @@ namespace DeviceReg.WebApi.Controllers
         /// <returns></returns>
         [Route("{userID}")]
         [HttpGet]
-        public UserModel Get(string id)
+        public UserModel Get(string userID)
         {
             throw new NotImplementedException();
         }
@@ -80,7 +80,7 @@ namespace DeviceReg.WebApi.Controllers
         /// <returns></returns>
         [Route("{userID}")]
         [HttpPut]
-        public HttpResponseMessage Put([FromBody] UserModel model)
+        public HttpResponseMessage Put(string userID, [FromBody] UserModel model)
         {
             throw new NotImplementedException();
         }
@@ -127,7 +127,7 @@ namespace DeviceReg.WebApi.Controllers
         /// <returns></returns>
         [Route("{userID}/devices/{deviceId}")]
         [HttpPut]
-        public HttpResponseMessage PutDevice(string userId, [FromBody]DeviceModel model)
+        public HttpResponseMessage PutDevice(string userId, string deviceId, [FromBody]DeviceModel model)
         {
             throw new NotImplementedException();
         }
@@ -162,7 +162,7 @@ namespace DeviceReg.WebApi.Controllers
         /// <returns></returns>
         [Route("{userId}/tags/{tagname}")]
         [HttpGet]
-        public TagModel GetTag(string userId, string name)
+        public TagModel GetTag(string userId, string tagname)
         {
             throw new NotImplementedException();
         }
@@ -186,7 +186,7 @@ namespace DeviceReg.WebApi.Controllers
         /// <returns></returns>
         [Route("{userID}/tags/{tagname}")]
         [HttpDelete]
-        public HttpResponseMessage DeleteTag(string userId, string name)
+        public HttpResponseMessage DeleteTag(string userId, string tagname)
         {
             throw new NotImplementedException();
         }
@@ -198,7 +198,7 @@ namespace DeviceReg.WebApi.Controllers
         /// <returns></returns>
         [Route("{userId}/tags/{tagname}")]
         [HttpPut]
-        public HttpResponseMessage PutTag(string userId, TagModel model)
+        public HttpResponseMessage PutTag(string userId, string tagname,TagModel model)
         {
             throw new NotImplementedException();
         }
@@ -210,7 +210,7 @@ namespace DeviceReg.WebApi.Controllers
         /// <returns></returns>
         [Route("{userId}/tags/{tagname}/devices")]
         [HttpGet]
-        public IEnumerable<DeviceModel> GetTagDevices(string userId, string tagName)
+        public IEnumerable<DeviceModel> GetTagDevices(string userId, string tagname)
         {
             throw new NotImplementedException();
         }

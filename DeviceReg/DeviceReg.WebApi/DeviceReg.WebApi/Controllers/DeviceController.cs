@@ -104,7 +104,7 @@ namespace DeviceReg.WebApi.Controllers
         /// <returns></returns>
         [Route("{id}")]
         [HttpPut]
-        public HttpResponseMessage Put([FromBody]DeviceModel model)
+        public HttpResponseMessage Put(string id, [FromBody]DeviceModel model)
         {
             var device = new Device();
             var status = HttpStatusCode.BadRequest;
@@ -114,7 +114,7 @@ namespace DeviceReg.WebApi.Controllers
                 device.Serialnumber = model.SerialNumber;
                 device.RegularMaintenance = model.RegularMaintenance;
 
-                var success = Service.UpdateDevice(device) != null;
+                var success = Service.UpdateDevice(id, device) != null;
                 status = (success) ? HttpStatusCode.OK : HttpStatusCode.NotFound;
             }
             var response = Request.CreateResponse(HttpStatusCode.Created, model);
