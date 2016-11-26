@@ -11,17 +11,17 @@ using System.Web.Http.Controllers;
 
 namespace DeviceReg.WebApi.Controllers
 {
+    [RoutePrefix("api/users")]
     public class UserController : ApiControllerBase, IHttpMethods<UserModel>
     {
-        private const string BASE_ROUTE = "api/user";
-        private const string BASE_ROUTE_WITH_ID = "api/user/{userID}";
-        private const string NESTED_DEVICE_ROUTE = "api/user/{userId}/device";
-        private const string NESTED_DEVICE_ROUTE_WITH_ID = "api/user/{userId}/device/{deviceId}";
 
-        private const string NESTED_TAG_ROUTE = "api/user/{userId}/tags";
-        private const string NESTED_TAG_ROUTE_WITH_NAME = "api/user/{userId}/tag/{tagName}";
+        private const string NESTED_DEVICE_ROUTE = "{userId}/device";
+        private const string NESTED_DEVICE_ROUTE_WITH_ID = "{userId}/device/{deviceId}";
 
-        private const string NESTED_DEVICES_WITH_TAG = "api/user/{userId}/tag/{tagName}/devices";
+        private const string NESTED_TAG_ROUTE = "{userId}/tags";
+        private const string NESTED_TAG_ROUTE_WITH_NAME = "{userId}/tag/{tagName}";
+
+        private const string NESTED_DEVICES_WITH_TAG = "{userId}/tag/{tagName}/devices";
 
         private UserService Service;
         protected override void Initialize(HttpControllerContext controllerContext)
@@ -35,7 +35,7 @@ namespace DeviceReg.WebApi.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [Route(BASE_ROUTE_WITH_ID)]
+        [Route("{userID}")]
         [HttpDelete]
         public HttpResponseMessage Delete(string id)
         {
@@ -45,7 +45,7 @@ namespace DeviceReg.WebApi.Controllers
         /// Get all User
         /// </summary>
         /// <returns></returns>
-        [Route(BASE_ROUTE + "s")]
+        [Route("")]
         [HttpGet]
         public IEnumerable<UserModel> Get()
         {
@@ -56,7 +56,7 @@ namespace DeviceReg.WebApi.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [Route(BASE_ROUTE_WITH_ID)]
+        [Route("{userID}")]
         [HttpGet]
         public UserModel Get(string id)
         {
@@ -67,7 +67,7 @@ namespace DeviceReg.WebApi.Controllers
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        [Route(BASE_ROUTE + "s")]
+        [Route("")]
         [HttpPost]
         public HttpResponseMessage Post([FromBody] UserModel model)
         {
@@ -78,7 +78,7 @@ namespace DeviceReg.WebApi.Controllers
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        [Route(BASE_ROUTE_WITH_ID)]
+        [Route("{userID}")]
         [HttpPut]
         public HttpResponseMessage Put([FromBody] UserModel model)
         {
@@ -89,7 +89,7 @@ namespace DeviceReg.WebApi.Controllers
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        [Route(NESTED_DEVICE_ROUTE + "s")]
+        [Route("{userID}/devices")]
         [HttpGet]
         public IEnumerable<DeviceModel> GetDevices(string userId)
         {
@@ -101,7 +101,7 @@ namespace DeviceReg.WebApi.Controllers
         /// <param name="userId"></param>
         /// <param name="deviceId"></param>
         /// <returns></returns>
-        [Route(NESTED_DEVICE_ROUTE_WITH_ID)]
+        [Route("{userID}/devices/{deviceId}")]
         [HttpGet]
         public DeviceModel GetDevice(string userId, string deviceId)
         {
@@ -113,7 +113,7 @@ namespace DeviceReg.WebApi.Controllers
         /// <param name="userId"></param>
         /// <param name="model"></param>
         /// <returns></returns>
-        [Route(NESTED_DEVICE_ROUTE + "s")]
+        [Route("{userID}/devices")]
         [HttpPost]
         public HttpResponseMessage PostDevice(string userId, [FromBody]DeviceModel model)
         {
@@ -125,7 +125,7 @@ namespace DeviceReg.WebApi.Controllers
         /// <param name="userId"></param>
         /// <param name="model"></param>
         /// <returns></returns>
-        [Route(NESTED_DEVICE_ROUTE_WITH_ID)]
+        [Route("{userID}/devices/{deviceId}")]
         [HttpPut]
         public HttpResponseMessage PutDevice(string userId, [FromBody]DeviceModel model)
         {
@@ -137,7 +137,7 @@ namespace DeviceReg.WebApi.Controllers
         /// <param name="userId"></param>
         /// <param name="deviceId"></param>
         /// <returns></returns>
-        [Route(NESTED_DEVICE_ROUTE_WITH_ID)]
+        [Route("{userID}/devices/{deviceId}")]
         [HttpDelete]
         public HttpResponseMessage DeleteDevice(string userId, string deviceId)
         {
@@ -148,7 +148,7 @@ namespace DeviceReg.WebApi.Controllers
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        [Route(NESTED_TAG_ROUTE)]
+        [Route("{userID}/tags")]
         [HttpGet]
         public IEnumerable<TagModel> GetTags(string userId)
         {
@@ -160,7 +160,7 @@ namespace DeviceReg.WebApi.Controllers
         /// <param name="userId"></param>
         /// <param name="name"></param>
         /// <returns></returns>
-        [Route(NESTED_TAG_ROUTE_WITH_NAME)]
+        [Route("{userId}/tags/{tagname}")]
         [HttpGet]
         public TagModel GetTag(string userId, string name)
         {
@@ -172,7 +172,7 @@ namespace DeviceReg.WebApi.Controllers
         /// <param name="userId"></param>
         /// <param name="model"></param>
         /// <returns></returns>
-        [Route(NESTED_TAG_ROUTE)]
+        [Route("{userId}/tags")]
         [HttpPost]
         public HttpResponseMessage PostTag(string userId, TagModel model)
         {
@@ -184,7 +184,7 @@ namespace DeviceReg.WebApi.Controllers
         /// <param name="userId"></param>
         /// <param name="name"></param>
         /// <returns></returns>
-        [Route(NESTED_TAG_ROUTE_WITH_NAME)]
+        [Route("{userID}/tags/{tagname}")]
         [HttpDelete]
         public HttpResponseMessage DeleteTag(string userId, string name)
         {
@@ -196,7 +196,7 @@ namespace DeviceReg.WebApi.Controllers
         /// <param name="userId"></param>
         /// <param name="model"></param>
         /// <returns></returns>
-        [Route(NESTED_TAG_ROUTE_WITH_NAME)]
+        [Route("{userId}/tags/{tagname}")]
         [HttpPut]
         public HttpResponseMessage PutTag(string userId, TagModel model)
         {
@@ -208,7 +208,7 @@ namespace DeviceReg.WebApi.Controllers
         /// <param name="userId"></param>
         /// <param name="tagName"></param>
         /// <returns></returns>
-        [Route(NESTED_DEVICES_WITH_TAG)]
+        [Route("{userId}/tags/{tagname}/devices")]
         [HttpGet]
         public IEnumerable<DeviceModel> GetTagDevices(string userId, string tagName)
         {

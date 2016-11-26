@@ -13,12 +13,9 @@ using System.Web.Http.Controllers;
 
 namespace DeviceReg.WebApi.Controllers
 {
+    [RoutePrefix("api/devices")]
     public class DeviceController : ApiControllerBase, IHttpMethods<DeviceModel>
     {
-        private const string BASE_ROUTE = "api/device";
-        private const string BASE_ROUTE_WITH_ID ="api/device/{deviceId}";
-        private const string BASE_ROUTE_WITH_ID_AND_TAG = "api/device/{deviceId}/tags";
-
         private DeviceService Service;
         protected override void Initialize(HttpControllerContext controllerContext)
         {
@@ -31,7 +28,7 @@ namespace DeviceReg.WebApi.Controllers
         /// Get All Devices
         /// </summary>
         /// <returns></returns>
-        [Route(BASE_ROUTE+"s")]
+        [Route("")]
         [HttpGet]
         public IEnumerable<DeviceModel> Get()
         {
@@ -51,7 +48,7 @@ namespace DeviceReg.WebApi.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [Route(BASE_ROUTE_WITH_ID)]
+        [Route("{id}")]
         [HttpGet]
         public DeviceModel Get(string id)
         {
@@ -77,7 +74,7 @@ namespace DeviceReg.WebApi.Controllers
         /// </summary>
         /// <param name="deviceModel"></param>
         /// <returns></returns>
-        [Route(BASE_ROUTE)]
+        [Route("")]
         [HttpPost]
         public HttpResponseMessage Post([FromBody]DeviceModel deviceModel)
         {
@@ -105,7 +102,7 @@ namespace DeviceReg.WebApi.Controllers
         /// <param name="id"></param>
         /// <param name="model"></param>
         /// <returns></returns>
-        [Route(BASE_ROUTE_WITH_ID)]
+        [Route("{id}")]
         [HttpPut]
         public HttpResponseMessage Put([FromBody]DeviceModel model)
         {
@@ -129,7 +126,7 @@ namespace DeviceReg.WebApi.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [Route(BASE_ROUTE_WITH_ID)]
+        [Route("{id}")]
         [HttpDelete]
         public HttpResponseMessage Delete(string id)
         {
@@ -138,7 +135,7 @@ namespace DeviceReg.WebApi.Controllers
 
             return new HttpResponseMessage(returncode);
         }
-        [Route(BASE_ROUTE_WITH_ID_AND_TAG)]
+        [Route("{id}/tags")]
         [HttpGet]
         public IEnumerable<TagModel> GetTags(string deviceId)
         {
