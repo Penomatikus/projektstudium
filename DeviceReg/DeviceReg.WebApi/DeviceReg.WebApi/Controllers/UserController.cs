@@ -14,15 +14,6 @@ namespace DeviceReg.WebApi.Controllers
     [RoutePrefix("api/users")]
     public class UserController : ApiControllerBase, IHttpMethods<UserModel>
     {
-
-        private const string NESTED_DEVICE_ROUTE = "{userId}/device";
-        private const string NESTED_DEVICE_ROUTE_WITH_ID = "{userId}/device/{deviceId}";
-
-        private const string NESTED_TAG_ROUTE = "{userId}/tags";
-        private const string NESTED_TAG_ROUTE_WITH_NAME = "{userId}/tag/{tagName}";
-
-        private const string NESTED_DEVICES_WITH_TAG = "{userId}/tag/{tagName}/devices";
-
         private UserService Service;
         protected override void Initialize(HttpControllerContext controllerContext)
         {

@@ -9,7 +9,7 @@ namespace DeviceReg.WebApi.Controllers.Base
         IEnumerable<T> Get();
         T Get(string id);
         HttpResponseMessage Post([FromBody]T model);
-        HttpResponseMessage Put([FromBody]T model);
+        HttpResponseMessage Put(string id, [FromBody]T model);
         HttpResponseMessage Delete(string id);
 
     }
