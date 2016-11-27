@@ -24,11 +24,8 @@ namespace DeviceReg.Common.Data.Models
 
         public string name { get; set; }
 
-        public int OwnerID { get; set; }
+        public User User { get; set; }
 
-        [ForeignKey("OwnerID")]
-        public virtual User User { get; set; }
-
-        public virtual ICollection<Device> Devices { get; set; }
+        public ICollection<Device> Devices { get; set; }
     }
 }

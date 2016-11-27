@@ -23,6 +23,6 @@ namespace DeviceReg.Common.Data.Models
 
         public string name { get; set; }
 
-        public virtual ICollection<Tag> Tags { get; set; }
+        public ICollection<Tag> Tags { get; set; }
     }
 }

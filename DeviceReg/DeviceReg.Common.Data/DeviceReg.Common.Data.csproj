@@ -76,6 +76,10 @@
     <Compile Include="Migrations\201611272049359_TagDevice.Designer.cs">
       <DependentUpon>201611272049359_TagDevice.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611272113082_WithoutVirtual.cs" />
+    <Compile Include="Migrations\201611272113082_WithoutVirtual.Designer.cs">
+      <DependentUpon>201611272113082_WithoutVirtual.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ComplexTypes\Timestamp.cs" />
     <Compile Include="Models\Devices.cs" />
@@ -102,6 +106,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611272049359_TagDevice.resx">
       <DependentUpon>201611272049359_TagDevice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611272113082_WithoutVirtual.resx">
+      <DependentUpon>201611272113082_WithoutVirtual.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
