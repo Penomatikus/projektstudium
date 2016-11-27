@@ -73,6 +73,7 @@
     <Compile Include="Models\Devices.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Medium.cs" />
+    <Compile Include="Models\Tag.cs" />
     <Compile Include="Models\TypeOfDevice.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
