@@ -15,6 +15,7 @@ namespace DeviceReg.Common.Data.Models
         public Tag()
         {
             Timestamp = new Timestamp();
+            Devices = new List<Device>();
         }
 
         public int Id { get; set; }
@@ -27,5 +28,7 @@ namespace DeviceReg.Common.Data.Models
 
         [ForeignKey("OwnerID")]
         public virtual User User { get; set; }
+
+        public virtual ICollection<Device> Devices { get; set; }
     }
 }
