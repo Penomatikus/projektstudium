@@ -68,6 +68,10 @@
     <Compile Include="Migrations\201611251424176_AddedUser.Designer.cs">
       <DependentUpon>201611251424176_AddedUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611272034117_AddedTag.cs" />
+    <Compile Include="Migrations\201611272034117_AddedTag.Designer.cs">
+      <DependentUpon>201611272034117_AddedTag.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ComplexTypes\Timestamp.cs" />
     <Compile Include="Models\Devices.cs" />
@@ -88,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611251424176_AddedUser.resx">
       <DependentUpon>201611251424176_AddedUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611272034117_AddedTag.resx">
+      <DependentUpon>201611272034117_AddedTag.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
