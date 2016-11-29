@@ -99,12 +99,11 @@ namespace DeviceReg.WebApi.Controllers
         /// <summary>
         /// Update Device
         /// </summary>
-        /// <param name="id"></param>
         /// <param name="model"></param>
         /// <returns></returns>
         [Route("{id}")]
         [HttpPut]
-        public HttpResponseMessage Put(string id, [FromBody]DeviceModel model)
+        public HttpResponseMessage Put([FromBody]DeviceModel model)
         {
             var device = new Device();
             var status = HttpStatusCode.BadRequest;
