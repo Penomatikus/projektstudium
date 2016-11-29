@@ -3,18 +3,23 @@ using DeviceReg.WebApi.Models;
 using DeviceReg.Services;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 
 namespace DeviceReg.WebApi.Controllers
 {
+    ///  <summary>
+    /// Controller for User Manipulation 
+    /// </summary>
     [RoutePrefix("api/users")]
     public class UserController : ApiControllerBase, IHttpMethods<UserModel>
     {
         private UserService Service;
+        /// <summary>
+        /// From ApiControllerBase
+        /// </summary>
+        /// <param name="controllerContext"></param>
         protected override void Initialize(HttpControllerContext controllerContext)
         {
             base.Initialize(controllerContext);
@@ -24,7 +29,7 @@ namespace DeviceReg.WebApi.Controllers
         /// <summary>
         /// Delete User
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="userID"></param>
         /// <returns></returns>
         [Route("{userID}")]
         [HttpDelete]
@@ -45,7 +50,7 @@ namespace DeviceReg.WebApi.Controllers
         /// <summary>
         /// Get User
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="userID"></param>
         /// <returns></returns>
         [Route("{userID}")]
         [HttpGet]
@@ -84,6 +89,7 @@ namespace DeviceReg.WebApi.Controllers
         [HttpGet]
         public IEnumerable<DeviceModel> GetDevices(string userId)
         {
+            //Only Device IDs and names?
             throw new NotImplementedException();
         }
         /// <summary>
@@ -96,6 +102,7 @@ namespace DeviceReg.WebApi.Controllers
         [HttpGet]
         public DeviceModel GetDevice(string userId, string deviceId)
         {
+            //Needed? DeviceController can be used
             throw new NotImplementedException();
         }
         /// <summary>
@@ -108,6 +115,7 @@ namespace DeviceReg.WebApi.Controllers
         [HttpPost]
         public HttpResponseMessage PostDevice(string userId, [FromBody]DeviceModel model)
         {
+            // Post only deviceId? Use DeviceController for Creation? only Link Device to User here?
             throw new NotImplementedException();
         }
         /// <summary>
@@ -120,6 +128,7 @@ namespace DeviceReg.WebApi.Controllers
         [HttpDelete]
         public HttpResponseMessage DeleteDevice(string userId, string deviceId)
         {
+            // complete or just Relation?
             throw new NotImplementedException();
         }
         /// <summary>
@@ -131,18 +140,20 @@ namespace DeviceReg.WebApi.Controllers
         [HttpGet]
         public IEnumerable<TagModel> GetTags(string userId)
         {
+            // only IDs? Create Tag Contoller?
             throw new NotImplementedException();
         }
         /// <summary>
         /// Get Tag
         /// </summary>
         /// <param name="userId"></param>
-        /// <param name="name"></param>
+        /// <param name="tagname"></param>
         /// <returns></returns>
         [Route("{userId}/tags/{tagname}")]
         [HttpGet]
         public TagModel GetTag(string userId, string tagname)
         {
+            // What is there to get?
             throw new NotImplementedException();
         }
         /// <summary>
@@ -161,7 +172,7 @@ namespace DeviceReg.WebApi.Controllers
         /// Delete Tag
         /// </summary>
         /// <param name="userId"></param>
-        /// <param name="name"></param>
+        /// <param name="tagname"></param>
         /// <returns></returns>
         [Route("{userID}/tags/{tagname}")]
         [HttpDelete]
@@ -172,12 +183,11 @@ namespace DeviceReg.WebApi.Controllers
         /// <summary>
         /// Update Tag
         /// </summary>
-        /// <param name="userId"></param>
         /// <param name="model"></param>
         /// <returns></returns>
         [Route("{userId}/tags/{tagname}")]
         [HttpPut]
-        public HttpResponseMessage PutTag(string userId, string tagname,TagModel model)
+        public HttpResponseMessage PutTag(TagModel model)
         {
             throw new NotImplementedException();
         }
@@ -185,12 +195,13 @@ namespace DeviceReg.WebApi.Controllers
         /// Get all Devices of User with tag
         /// </summary>
         /// <param name="userId"></param>
-        /// <param name="tagName"></param>
+        /// <param name="tagname"></param>
         /// <returns></returns>
         [Route("{userId}/tags/{tagname}/devices")]
         [HttpGet]
         public IEnumerable<DeviceModel> GetTagDevices(string userId, string tagname)
         {
+            //again, only IDs?
             throw new NotImplementedException();
         }
     }
