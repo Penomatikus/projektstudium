@@ -71,7 +71,7 @@ namespace DeviceReg.WebApi.Controllers
         /// <returns></returns>
         [Route("{userID}")]
         [HttpPut]
-        public HttpResponseMessage Put(string userID, [FromBody] UserModel model)
+        public HttpResponseMessage Put([FromBody] UserModel model)
         {
             throw new NotImplementedException();
         }
@@ -107,18 +107,6 @@ namespace DeviceReg.WebApi.Controllers
         [Route("{userID}/devices")]
         [HttpPost]
         public HttpResponseMessage PostDevice(string userId, [FromBody]DeviceModel model)
-        {
-            throw new NotImplementedException();
-        }
-        /// <summary>
-        /// Update device of User
-        /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="model"></param>
-        /// <returns></returns>
-        [Route("{userID}/devices/{deviceId}")]
-        [HttpPut]
-        public HttpResponseMessage PutDevice(string userId, string deviceId, [FromBody]DeviceModel model)
         {
             throw new NotImplementedException();
         }
