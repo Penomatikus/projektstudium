@@ -5,14 +5,14 @@ namespace DeviceReg.Common.Data.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<DeviceReg.Common.Data.DeviceRegDB.DeviceRegDBContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<DeviceReg.Common.Data.Models.ApplicationDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(DeviceReg.Common.Data.DeviceRegDB.DeviceRegDBContext context)
+        protected override void Seed(DeviceReg.Common.Data.Models.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

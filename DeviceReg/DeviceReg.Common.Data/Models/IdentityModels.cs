@@ -4,11 +4,17 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
 
-namespace DeviceReg.WebApi.Models
+namespace DeviceReg.Common.Data.Models
 {
     // Sie können Profildaten für den Benutzer durch Hinzufügen weiterer Eigenschaften zur ApplicationUser-Klasse hinzufügen. Weitere Informationen finden Sie unter "http://go.microsoft.com/fwlink/?LinkID=317594".
     public class ApplicationUser : IdentityUser
     {
+        public ApplicationUser()
+        {
+            User = new User();
+            User.name = this.UserName;
+        }
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager, string authenticationType)
         {
             // Beachten Sie, dass der "authenticationType" mit dem in "CookieAuthenticationOptions.AuthenticationType" definierten Typ übereinstimmen muss.
@@ -17,7 +23,7 @@ namespace DeviceReg.WebApi.Models
             return userIdentity;
         }
 
-        public Common.Data.Models.User User { get; set; }
+        public User User { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
