@@ -2,6 +2,8 @@
 using DeviceReg.Common.Services;
 using DeviceReg.WebApi.Controllers.Base;
 using DeviceReg.WebApi.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +15,8 @@ using System.Web.Http.Controllers;
 
 namespace DeviceReg.WebApi.Controllers
 {
+
+  //  [RoutePrefix("api/Devices")]
     public class DeviceController : ApiControllerBase
     {
         private DeviceService Service;
@@ -23,6 +27,14 @@ namespace DeviceReg.WebApi.Controllers
             Service = new DeviceService(UnitOfWork);
         }
 
+        [Authorize]
+        public string Get()
+        {
+            //var user = Request.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(User.Identity.GetUserId());
+            var user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+            return user.ToString();
+        }
+       
         public HttpResponseMessage Post([FromBody]DeviceModel deviceModel)
         {
             var returncode = HttpStatusCode.BadRequest;

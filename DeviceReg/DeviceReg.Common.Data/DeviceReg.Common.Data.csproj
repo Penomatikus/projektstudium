@@ -60,29 +60,9 @@
     <Compile Include="DeviceRegDB\DeviceRegDBContext.cs" />
     <Compile Include="DeviceRegDB\DeviceRegDBInitializer.cs" />
     <Compile Include="Interfaces\IEntity.cs" />
-    <Compile Include="Migrations\201611091952136_Initial.cs" />
-    <Compile Include="Migrations\201611091952136_Initial.Designer.cs">
-      <DependentUpon>201611091952136_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611251424176_AddedUser.cs" />
-    <Compile Include="Migrations\201611251424176_AddedUser.Designer.cs">
-      <DependentUpon>201611251424176_AddedUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611272034117_AddedTag.cs" />
-    <Compile Include="Migrations\201611272034117_AddedTag.Designer.cs">
-      <DependentUpon>201611272034117_AddedTag.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611272049359_TagDevice.cs" />
-    <Compile Include="Migrations\201611272049359_TagDevice.Designer.cs">
-      <DependentUpon>201611272049359_TagDevice.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611272113082_WithoutVirtual.cs" />
-    <Compile Include="Migrations\201611272113082_WithoutVirtual.Designer.cs">
-      <DependentUpon>201611272113082_WithoutVirtual.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201612021555061_UserDevice.cs" />
-    <Compile Include="Migrations\201612021555061_UserDevice.Designer.cs">
-      <DependentUpon>201612021555061_UserDevice.cs</DependentUpon>
+    <Compile Include="Migrations\201612021731063_init.cs" />
+    <Compile Include="Migrations\201612021731063_init.Designer.cs">
+      <DependentUpon>201612021731063_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ComplexTypes\Timestamp.cs" />
@@ -99,26 +79,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201611091952136_Initial.resx">
-      <DependentUpon>201611091952136_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611251424176_AddedUser.resx">
-      <DependentUpon>201611251424176_AddedUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611272034117_AddedTag.resx">
-      <DependentUpon>201611272034117_AddedTag.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611272049359_TagDevice.resx">
-      <DependentUpon>201611272049359_TagDevice.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611272113082_WithoutVirtual.resx">
-      <DependentUpon>201611272113082_WithoutVirtual.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612021555061_UserDevice.resx">
-      <DependentUpon>201612021555061_UserDevice.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201612021731063_init.resx">
+      <DependentUpon>201612021731063_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
