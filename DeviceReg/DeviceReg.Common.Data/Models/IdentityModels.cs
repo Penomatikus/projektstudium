@@ -2,9 +2,9 @@
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-//using Microsoft.AspNet.Identity.Owin;
 
-namespace DeviceReg.Common.Data.Models
+
+namespace DeviceReg.WebApi.Models
 {
     // Sie können Profildaten für den Benutzer durch Hinzufügen weiterer Eigenschaften zur ApplicationUser-Klasse hinzufügen. Weitere Informationen finden Sie unter "http://go.microsoft.com/fwlink/?LinkID=317594".
     public class ApplicationUser : IdentityUser
@@ -15,6 +15,21 @@ namespace DeviceReg.Common.Data.Models
             var userIdentity = await manager.CreateIdentityAsync(this, authenticationType);
             // Benutzerdefinierte Benutzeransprüche hier hinzufügen
             return userIdentity;
+        }
+
+        public Common.Data.Models.User User { get; set; }
+    }
+
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    {
+        public ApplicationDbContext()
+            : base("DefaultConnection", throwIfV1Schema: false)
+        {
+        }
+        
+        public static ApplicationDbContext Create()
+        {
+            return new ApplicationDbContext();
         }
     }
 }

@@ -16,7 +16,8 @@ using System.Web.Http.Controllers;
 namespace DeviceReg.WebApi.Controllers
 {
 
-  //  [RoutePrefix("api/Devices")]
+    [Authorize]
+    //  [RoutePrefix("api/Devices")]
     public class DeviceController : ApiControllerBase
     {
         private DeviceService Service;
@@ -27,12 +28,12 @@ namespace DeviceReg.WebApi.Controllers
             Service = new DeviceService(UnitOfWork);
         }
 
-        [Authorize]
+       
         public string Get()
         {
             //var user = Request.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(User.Identity.GetUserId());
-            var user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
-            return user.ToString();
+            var user = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(HttpContext.Current.User.Identity.GetUserId());
+            return user.User.Devices.ToString();
         }
        
         public HttpResponseMessage Post([FromBody]DeviceModel deviceModel)
@@ -42,11 +43,12 @@ namespace DeviceReg.WebApi.Controllers
             if (deviceModel != null && deviceModel.IsValid())
             {
                 var device = new Device();
+                var user = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(HttpContext.Current.User.Identity.GetUserId());
 
                 device.Description = deviceModel.Description;
                 device.Serialnumber = deviceModel.SerialNumber;
                 device.RegularMaintenance = deviceModel.RegularMaintenance;
-
+                device.User = user.User;
                 Service.AddDevice(device);
 
                 returncode = HttpStatusCode.Accepted;
