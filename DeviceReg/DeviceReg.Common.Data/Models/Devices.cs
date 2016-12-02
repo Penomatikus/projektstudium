@@ -67,6 +67,8 @@ namespace DeviceReg.Common.Data.Models
 
         public virtual ICollection<Tag> Tags { get; set; }
 
+        public virtual User User { get; set; }
+
 
     }
 }

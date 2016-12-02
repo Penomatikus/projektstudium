@@ -80,6 +80,10 @@
     <Compile Include="Migrations\201611272113082_WithoutVirtual.Designer.cs">
       <DependentUpon>201611272113082_WithoutVirtual.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612021555061_UserDevice.cs" />
+    <Compile Include="Migrations\201612021555061_UserDevice.Designer.cs">
+      <DependentUpon>201612021555061_UserDevice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ComplexTypes\Timestamp.cs" />
     <Compile Include="Models\Devices.cs" />
@@ -109,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611272113082_WithoutVirtual.resx">
       <DependentUpon>201611272113082_WithoutVirtual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612021555061_UserDevice.resx">
+      <DependentUpon>201612021555061_UserDevice.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

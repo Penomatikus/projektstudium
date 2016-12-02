@@ -16,6 +16,7 @@ namespace DeviceReg.Common.Data.Models
         {
             Timestamp = new Timestamp();
             Tags = new List<Tag>();
+            Devices = new List<Device>();
         }
         public int Id { get; set; }
 
@@ -24,5 +25,7 @@ namespace DeviceReg.Common.Data.Models
         public string name { get; set; }
 
         public ICollection<Tag> Tags { get; set; }
+
+        public ICollection<Device> Devices { get; set; }
     }
 }
