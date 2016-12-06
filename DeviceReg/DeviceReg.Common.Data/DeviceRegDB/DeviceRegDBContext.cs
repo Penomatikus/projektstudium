@@ -21,7 +21,7 @@ namespace DeviceReg.Common.Data.DeviceRegDB
         {
             get; set;
         }
-        public virtual DbSet<AspNetUsers> AspNetUsers
+        public virtual DbSet<AspNetUser> AspNetUsers
         {
             get; set;
         }
@@ -33,6 +33,21 @@ namespace DeviceReg.Common.Data.DeviceRegDB
         //{
         //   get; set;
         //}
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+
+            modelBuilder.Entity<AspNetUser>()
+                        .HasMany<AspNetRole>(s => s.Roles)
+                        .WithMany(c => c.Users)
+                        .Map(cs =>
+                        {
+                            cs.MapLeftKey("UserId");
+                            cs.MapRightKey("RoleId");
+                            cs.ToTable("AspNetUserRoles");
+                        });
+
+        }
     }
 }
 

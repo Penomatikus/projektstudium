@@ -14,18 +14,18 @@ namespace DeviceReg.Services
         {
         }
 
-        public AspNetUsers GetUserByEmail(string email)
+        public AspNetUser GetUserByEmail(string email)
         {
             return UnitOfWork.Users.GetUserByEmail(email);
         }
 
-        public AspNetUsers GetUserById(string id)
+        public AspNetUser GetUserById(string id)
         {
             return UnitOfWork.Users.GetUserById(id);
         }
 
 
-        public IEnumerable<AspNetUsers> GetActiveUsers()
+        public IEnumerable<AspNetUser> GetActiveUsers()
         {
             return UnitOfWork.Users.GetActiveUsers();
         }

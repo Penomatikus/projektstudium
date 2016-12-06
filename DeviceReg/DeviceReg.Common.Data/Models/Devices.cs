@@ -66,7 +66,7 @@ namespace DeviceReg.Common.Data.Models
         public string UserId { get; set; }
 
         [ForeignKey("UserId")]
-        public AspNetUsers User { get; set; }
+        public AspNetUser User { get; set; }
 
         public Timestamp Timestamp { get; set; }
 

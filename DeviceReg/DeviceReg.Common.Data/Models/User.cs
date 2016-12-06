@@ -10,11 +10,12 @@ using DeviceReg.Common.Data.Models.ComplexTypes;
 
 namespace DeviceReg.Common.Data.Models
 {
-    public class AspNetUsers
+    public class AspNetUser
     {
-        public AspNetUsers()
+        public AspNetUser()
         {
             Devices = new List<Device>();
+            Roles = new List<AspNetRole>();
         }
 
         public string Id { get; set; }
@@ -42,6 +43,9 @@ namespace DeviceReg.Common.Data.Models
         public string UserName { get; set; }
 
         public ICollection<Device> Devices { get; set; }
+
+        public virtual ICollection<AspNetRole> Roles { get; set; }
+
 
     }
 }
