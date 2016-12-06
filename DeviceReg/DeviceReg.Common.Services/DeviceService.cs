@@ -18,13 +18,11 @@ namespace DeviceReg.Common.Services
 
         }
 
-        public void AddDevice(Device device, string email)
+        public void AddDevice(Device device)
         {
             var userService = new UserService(UnitOfWork);
 
-            var user = userService.GetUserByEmail(email);
-
-            if (user != null)
+            if (device != null)
             {
                 UnitOfWork.Devices.Add(device);
 
@@ -32,7 +30,7 @@ namespace DeviceReg.Common.Services
             }
             else
             {
-                throw new Exception("Invalid user");
+                throw new Exception("Invalid device");
             }
         }
 

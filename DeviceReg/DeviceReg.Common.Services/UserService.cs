@@ -8,7 +8,7 @@ using DeviceReg.Common.Data.Models;
 
 namespace DeviceReg.Services
 {
-    class UserService : Abstract.AbstractService
+    public class UserService : Abstract.AbstractService
     {
         public UserService(UnitOfWork unitOfWork) : base(unitOfWork)
         {
@@ -17,6 +17,11 @@ namespace DeviceReg.Services
         public AspNetUsers GetUserByEmail(string email)
         {
             return UnitOfWork.Users.GetUserByEmail(email);
+        }
+
+        public AspNetUsers GetUserById(string id)
+        {
+            return UnitOfWork.Users.GetUserById(id);
         }
 
 

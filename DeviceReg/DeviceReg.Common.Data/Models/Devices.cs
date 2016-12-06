@@ -2,6 +2,7 @@
 using DeviceReg.Common.Data.Models.ComplexTypes;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -61,6 +62,11 @@ namespace DeviceReg.Common.Data.Models
         //{
         //    get; set;
         //}
+
+        public string UserId { get; set; }
+
+        [ForeignKey("UserId")]
+        public AspNetUsers User { get; set; }
 
         public Timestamp Timestamp { get; set; }
 

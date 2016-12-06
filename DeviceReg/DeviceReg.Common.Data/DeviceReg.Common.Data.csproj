@@ -64,10 +64,21 @@
     <Compile Include="Migrations\201612060933472_Initial.Designer.cs">
       <DependentUpon>201612060933472_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612061021109_UserDeviceRelation.cs" />
+    <Compile Include="Migrations\201612061021109_UserDeviceRelation.Designer.cs">
+      <DependentUpon>201612061021109_UserDeviceRelation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612061100478_UserRefInDevice.cs" />
+    <Compile Include="Migrations\201612061100478_UserRefInDevice.Designer.cs">
+      <DependentUpon>201612061100478_UserRefInDevice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612061124474_Test.cs" />
+    <Compile Include="Migrations\201612061124474_Test.Designer.cs">
+      <DependentUpon>201612061124474_Test.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ComplexTypes\Timestamp.cs" />
     <Compile Include="Models\Devices.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Medium.cs" />
     <Compile Include="Models\TypeOfDevice.cs" />
     <Compile Include="Models\User.cs" />
@@ -80,6 +91,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201612060933472_Initial.resx">
       <DependentUpon>201612060933472_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612061021109_UserDeviceRelation.resx">
+      <DependentUpon>201612061021109_UserDeviceRelation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612061100478_UserRefInDevice.resx">
+      <DependentUpon>201612061100478_UserRefInDevice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612061124474_Test.resx">
+      <DependentUpon>201612061124474_Test.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

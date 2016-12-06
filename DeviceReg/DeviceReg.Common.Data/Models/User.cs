@@ -14,7 +14,7 @@ namespace DeviceReg.Common.Data.Models
     {
         public AspNetUsers()
         {
-
+            Devices = new List<Device>();
         }
 
         public string Id { get; set; }
@@ -40,6 +40,8 @@ namespace DeviceReg.Common.Data.Models
         public int AccessFailedCount { get; set; }
 
         public string UserName { get; set; }
+
+        public ICollection<Device> Devices { get; set; }
 
     }
 }

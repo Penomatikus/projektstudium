@@ -20,6 +20,11 @@ namespace DeviceReg.Repositories
             return DbSet.FirstOrDefault(u => u.Email == email);
         }
 
+        public AspNetUsers GetUserById(string id)
+        {
+            return DbSet.FirstOrDefault(u => u.Id == id);
+        }
+
 
         public IEnumerable<AspNetUsers> GetActiveUsers()
         {
