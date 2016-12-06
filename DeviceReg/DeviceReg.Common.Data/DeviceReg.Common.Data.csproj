@@ -59,9 +59,9 @@
   <ItemGroup>
     <Compile Include="DeviceRegDB\DeviceRegDBContext.cs" />
     <Compile Include="DeviceRegDB\DeviceRegDBInitializer.cs" />
-    <Compile Include="Migrations\201612062155327_Init.cs" />
-    <Compile Include="Migrations\201612062155327_Init.Designer.cs">
-      <DependentUpon>201612062155327_Init.cs</DependentUpon>
+    <Compile Include="Migrations\201612062215505_Initial.cs" />
+    <Compile Include="Migrations\201612062215505_Initial.Designer.cs">
+      <DependentUpon>201612062215505_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Claim.cs" />
@@ -70,6 +70,7 @@
     <Compile Include="Interfaces\IEntity.cs" />
     <Compile Include="Models\Medium.cs" />
     <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\UserLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\TypeOfDevice.cs" />
     <Compile Include="Models\User.cs" />
@@ -79,8 +80,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201612062155327_Init.resx">
-      <DependentUpon>201612062155327_Init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201612062215505_Initial.resx">
+      <DependentUpon>201612062215505_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

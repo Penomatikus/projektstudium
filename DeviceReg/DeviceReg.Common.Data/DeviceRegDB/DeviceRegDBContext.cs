@@ -38,6 +38,8 @@ namespace DeviceReg.Common.Data.DeviceRegDB
 
         public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
 
+        public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
 
