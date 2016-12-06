@@ -60,9 +60,9 @@
     <Compile Include="DeviceRegDB\DeviceRegDBContext.cs" />
     <Compile Include="DeviceRegDB\DeviceRegDBInitializer.cs" />
     <Compile Include="Interfaces\IEntity.cs" />
-    <Compile Include="Migrations\201611091952136_Initial.cs" />
-    <Compile Include="Migrations\201611091952136_Initial.Designer.cs">
-      <DependentUpon>201611091952136_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201612060933472_Initial.cs" />
+    <Compile Include="Migrations\201612060933472_Initial.Designer.cs">
+      <DependentUpon>201612060933472_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ComplexTypes\Timestamp.cs" />
@@ -70,6 +70,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Medium.cs" />
     <Compile Include="Models\TypeOfDevice.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -77,11 +78,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201611091952136_Initial.resx">
-      <DependentUpon>201611091952136_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201612060933472_Initial.resx">
+      <DependentUpon>201612060933472_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
