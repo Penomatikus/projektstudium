@@ -9,7 +9,6 @@ namespace DeviceReg.Common.Data.Models
 {
     public class AspNetUserClaim
     {
-        public AspNetUserClaim() { }
         public int Id { get; set; }
         public string ClaimType { get; set; }
         public string ClaimValue { get; set; }

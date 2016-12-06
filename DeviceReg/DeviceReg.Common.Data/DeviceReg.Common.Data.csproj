@@ -59,6 +59,11 @@
   <ItemGroup>
     <Compile Include="DeviceRegDB\DeviceRegDBContext.cs" />
     <Compile Include="DeviceRegDB\DeviceRegDBInitializer.cs" />
+    <Compile Include="Migrations\201612062155327_Init.cs" />
+    <Compile Include="Migrations\201612062155327_Init.Designer.cs">
+      <DependentUpon>201612062155327_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Claim.cs" />
     <Compile Include="Models\ComplexTypes\Timestamp.cs" />
     <Compile Include="Models\Devices.cs" />
@@ -72,6 +77,11 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201612062155327_Init.resx">
+      <DependentUpon>201612062155327_Init.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
