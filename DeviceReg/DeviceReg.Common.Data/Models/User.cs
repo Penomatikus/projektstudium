@@ -8,6 +8,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using DeviceReg.Common.Data.Interfaces;
 using DeviceReg.Common.Data.Models.ComplexTypes;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace DeviceReg.Common.Data.Models
 {
@@ -22,6 +23,7 @@ namespace DeviceReg.Common.Data.Models
 
         public string Id { get; set; }
 
+        [MaxLength(256)]
         public string Email { get; set; }
 
         public bool EmailConfirmed { get; set; }
@@ -42,6 +44,9 @@ namespace DeviceReg.Common.Data.Models
 
         public int AccessFailedCount { get; set; }
 
+        [Required]
+        [MaxLength(256)]
+        [Index("UserNameIndex", IsUnique = true)]
         public string UserName { get; set; }
 
         public ICollection<Device> Devices { get; set; }

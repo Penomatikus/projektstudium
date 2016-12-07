@@ -14,10 +14,10 @@ namespace DeviceReg.Common.Data.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         ClaimType = c.String(),
                         ClaimValue = c.String(),
-                        UserId = c.String(maxLength: 128),
+                        UserId = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId);
             
             CreateTable(
@@ -25,7 +25,7 @@ namespace DeviceReg.Common.Data.Migrations
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 128),
-                        Email = c.String(),
+                        Email = c.String(maxLength: 256),
                         EmailConfirmed = c.Boolean(nullable: false),
                         PasswordHash = c.String(),
                         SecurityStamp = c.String(),
@@ -35,9 +35,10 @@ namespace DeviceReg.Common.Data.Migrations
                         LockoutEndDateUtc = c.DateTime(),
                         LockoutEnabled = c.Boolean(nullable: false),
                         AccessFailedCount = c.Int(nullable: false),
-                        UserName = c.String(),
+                        UserName = c.String(nullable: false, maxLength: 256),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id)
+                .Index(t => t.UserName, unique: true, name: "UserNameIndex");
             
             CreateTable(
                 "dbo.Devices",
@@ -47,13 +48,13 @@ namespace DeviceReg.Common.Data.Migrations
                         Description = c.String(),
                         Serialnumber = c.String(),
                         RegularMaintenance = c.Boolean(nullable: false),
-                        UserId = c.String(maxLength: 128),
+                        UserId = c.String(nullable: false, maxLength: 128),
                         Timestamp_Created = c.DateTime(),
                         Timestamp_Deleted = c.DateTime(),
                         Timestamp_Modified = c.DateTime(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId);
             
             CreateTable(
@@ -61,10 +62,10 @@ namespace DeviceReg.Common.Data.Migrations
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 128),
-                        Name = c.String(maxLength: 256),
+                        Name = c.String(nullable: false, maxLength: 256),
                     })
                 .PrimaryKey(t => t.Id)
-                .Index(t => t.Name, name: "RoleNameIndex");
+                .Index(t => t.Name, unique: true, name: "RoleNameIndex");
             
             CreateTable(
                 "dbo.AspNetUserLogins",
@@ -105,6 +106,7 @@ namespace DeviceReg.Common.Data.Migrations
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.Devices", new[] { "UserId" });
+            DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetUserLogins");

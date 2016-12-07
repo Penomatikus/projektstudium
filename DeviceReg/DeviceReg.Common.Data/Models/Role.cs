@@ -16,7 +16,9 @@ namespace DeviceReg.Common.Data.Models
             Users = new List<User>();
         }
         public string Id { get; set; }
-        [Index("RoleNameIndex")]
+
+        [Required]
+        [Index("RoleNameIndex", IsUnique = true)]
         [MaxLength(256)]
         public string Name { get; set; }
 
