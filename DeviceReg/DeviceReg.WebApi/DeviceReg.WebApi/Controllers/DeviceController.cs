@@ -36,15 +36,12 @@ namespace DeviceReg.WebApi.Controllers
             {
                 var device = new Device();
 
-                // string currentUserId = User.Identity.GetUserId();
+                string currentUserId = User.Identity.GetUserId();
                  
-                ApplicationUser currentUser = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(HttpContext.Current.User.Identity.GetUserId());
-                string currentUserId = currentUser.Id;
                 device.Description = deviceModel.Description;
                 device.Serialnumber = deviceModel.SerialNumber;
                 device.RegularMaintenance = deviceModel.RegularMaintenance;
-                device.User = new UserService(UnitOfWork).GetUserById(currentUserId); // possibility 1
-                device.UserId = currentUserId; // possibility 2
+                device.UserId = currentUserId;
 
                 Service.AddDevice(device);
 
