@@ -7,14 +7,15 @@ using System.Threading.Tasks;
 
 namespace DeviceReg.Common.Data.Models
 {
-    public class AspNetUserClaim
+    [Table("AspNetUserClaims")]
+    public class Claim
     {
         public int Id { get; set; }
         public string ClaimType { get; set; }
         public string ClaimValue { get; set; }
         public string UserId { get; set; }
         [ForeignKey("UserId")]
-        public virtual AspNetUser User {get; set;}
+        public virtual User User {get; set;}
 
     }
 }

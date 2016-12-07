@@ -8,17 +8,18 @@ using System.Threading.Tasks;
 
 namespace DeviceReg.Common.Data.Models
 {
-    public class AspNetRole
+    [Table("AspNetRoles")]
+    public class Role
     {
-        public AspNetRole()
+        public Role()
         {
-            Users = new List<AspNetUser>();
+            Users = new List<User>();
         }
         public string Id { get; set; }
         [Index("RoleNameIndex")]
         [MaxLength(256)]
         public string Name { get; set; }
 
-        public virtual ICollection<AspNetUser> Users { get; set; }
+        public virtual ICollection<User> Users { get; set; }
     }
 }

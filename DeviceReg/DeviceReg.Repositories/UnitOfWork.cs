@@ -45,7 +45,7 @@ namespace DeviceReg.Repositories
             get
             {
                 if (_users == null)
-                    _users = new UserRepository(_context.AspNetUsers);
+                    _users = new UserRepository(_context.Users);
 
                 return _users;
             }

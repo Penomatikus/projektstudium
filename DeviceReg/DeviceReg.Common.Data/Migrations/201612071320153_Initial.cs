@@ -3,19 +3,22 @@ namespace DeviceReg.Common.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Init : DbMigration
+    public partial class Initial : DbMigration
     {
         public override void Up()
         {
             CreateTable(
-                "dbo.AspNetRoles",
+                "dbo.AspNetUserClaims",
                 c => new
                     {
-                        Id = c.String(nullable: false, maxLength: 128),
-                        Name = c.String(maxLength: 256),
+                        Id = c.Int(nullable: false, identity: true),
+                        ClaimType = c.String(),
+                        ClaimValue = c.String(),
+                        UserId = c.String(maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)
-                .Index(t => t.Name, name: "RoleNameIndex");
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId)
+                .Index(t => t.UserId);
             
             CreateTable(
                 "dbo.AspNetUsers",
@@ -54,17 +57,14 @@ namespace DeviceReg.Common.Data.Migrations
                 .Index(t => t.UserId);
             
             CreateTable(
-                "dbo.AspNetUserClaims",
+                "dbo.AspNetRoles",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
-                        ClaimType = c.String(),
-                        ClaimValue = c.String(),
-                        UserId = c.String(maxLength: 128),
+                        Id = c.String(nullable: false, maxLength: 128),
+                        Name = c.String(maxLength: 256),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId)
-                .Index(t => t.UserId);
+                .Index(t => t.Name, name: "RoleNameIndex");
             
             CreateTable(
                 "dbo.AspNetUserLogins",
@@ -103,15 +103,15 @@ namespace DeviceReg.Common.Data.Migrations
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
-            DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
-            DropIndex("dbo.Devices", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
+            DropIndex("dbo.Devices", new[] { "UserId" });
+            DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetUserLogins");
-            DropTable("dbo.AspNetUserClaims");
+            DropTable("dbo.AspNetRoles");
             DropTable("dbo.Devices");
             DropTable("dbo.AspNetUsers");
-            DropTable("dbo.AspNetRoles");
+            DropTable("dbo.AspNetUserClaims");
         }
     }
 }

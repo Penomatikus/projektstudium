@@ -7,15 +7,17 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity.EntityFramework;
 using DeviceReg.Common.Data.Interfaces;
 using DeviceReg.Common.Data.Models.ComplexTypes;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DeviceReg.Common.Data.Models
 {
-    public class AspNetUser
+    [Table("AspNetUsers")]
+    public class User
     {
-        public AspNetUser()
+        public User()
         {
             Devices = new List<Device>();
-            Roles = new List<AspNetRole>();
+            Roles = new List<Role>();
         }
 
         public string Id { get; set; }
@@ -44,7 +46,7 @@ namespace DeviceReg.Common.Data.Models
 
         public ICollection<Device> Devices { get; set; }
 
-        public virtual ICollection<AspNetRole> Roles { get; set; }
+        public virtual ICollection<Role> Roles { get; set; }
 
 
     }

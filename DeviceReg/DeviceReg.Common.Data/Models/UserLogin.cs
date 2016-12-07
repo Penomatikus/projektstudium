@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace DeviceReg.Common.Data.Models
 {
-    public class AspNetUserLogin
+    [Table("AspNetUserLogins")]
+    public class UserLogin
     {
         [Key]
         [Column(Order = 1)]
@@ -23,6 +24,6 @@ namespace DeviceReg.Common.Data.Models
         public string UserId { get; set; }
 
         [ForeignKey("UserId")]
-        public virtual AspNetUser User { get; set; }
+        public virtual User User { get; set; }
     }
 }

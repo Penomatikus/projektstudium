@@ -9,8 +9,6 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace DeviceReg.Common.Data.DeviceRegDB
 {
-
-    //public class DeviceRegDBContext : IdentityDbContext<ApplicationUser>
     public class DeviceRegDBContext:DbContext
     {
         
@@ -21,7 +19,7 @@ namespace DeviceReg.Common.Data.DeviceRegDB
         {
             get; set;
         }
-        public virtual DbSet<AspNetUser> AspNetUsers
+        public virtual DbSet<User> Users
         {
             get; set;
         }
@@ -34,17 +32,17 @@ namespace DeviceReg.Common.Data.DeviceRegDB
         //   get; set;
         //}
 
-        public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
 
-        public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
+        public virtual DbSet<Claim> Claims { get; set; }
 
-        public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
+        public virtual DbSet<UserLogin> UserLogins { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
 
-            modelBuilder.Entity<AspNetUser>()
-                        .HasMany<AspNetRole>(s => s.Roles)
+            modelBuilder.Entity<User>()
+                        .HasMany<Role>(s => s.Roles)
                         .WithMany(c => c.Users)
                         .Map(cs =>
                         {
